@@ -21,7 +21,9 @@
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "paths": {
-      "@Components/*": ["components/*"]
+      "@App/*": ["./*"],
+      "@Components/*": ["components/*"],
+      "@Reducer/*": ["reducer/*"]
     }
   },
   "exclude": ["dist", ".next", "out", "next.config.js"],
