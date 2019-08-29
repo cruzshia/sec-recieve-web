@@ -1,57 +1,63 @@
 {
-    "name": "custom-server-typescript",
-    "version": "1.0.0",
-    "scripts": {
-        "dev": "nodemon",
-        "build": "next build && tsc --project tsconfig.server.json",
-        "start": "cross-env NODE_ENV=production node dist/index.js"
-    },
-    "dependencies": {
-        "@types/react-redux": "^7.1.2",
-        "@types/redux": "^3.6.0",
-        "@zeit/next-sass": "^1.0.1",
-        "babel-plugin-module-resolver": "^3.2.0",
-        "next": "latest",
-        "next-redux-wrapper": "^3.0.0",
-        "next-routes": "^1.4.2",
-        "node-sass": "^4.12.0",
-        "react": "^16.8.4",
-        "react-dom": "^16.8.4",
-        "react-redux": "^7.1.1",
-        "redux": "^4.0.4",
-        "redux-devtools-extension": "^2.13.8",
-        "redux-observable": "^1.1.0",
-        "rxjs": "^6.5.2"
-    },
-    "devDependencies": {
-        "@types/node": "^12.0.12",
-        "@types/react": "^16.8.17",
-        "@types/react-dom": "16.8.4",
-        "cross-env": "^5.2.0",
-        "nodemon": "^1.19.0",
-        "ts-node": "^8.1.0",
-        "typescript": "^3.4.5"
-    },
-    "moduleNameMapper": {
-        "^.+\\.(css|sass|scss)$": "identity-obj-proxy",
-        "@App/*": [
-            "/*"
-        ],
-        "@Components/*": [
-            "components/*"
-        ],
-        "@Reducer/*": [
-            "reducer/*"
-        ]
-    },
-    "moduleFileExtensions": [
-        "web.js",
-        "js",
-        "ts",
-        "json",
-        "web.jsx",
-        "jsx",
-        "tsx",
-        "node"
+  "name": "custom-server-typescript",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "PORT=5000 nodemon",
+    "build": "next build && tsc --project tsconfig.server.json",
+    "start": "cross-env NODE_ENV=production node dist/index.js"
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.3.3",
+    "@material-ui/icons": "^4.2.1",
+    "@types/express": "^4.17.1",
+    "@types/react-redux": "^7.1.2",
+    "@types/redux": "^3.6.0",
+    "@zeit/next-sass": "^1.0.1",
+    "babel-plugin-module-resolver": "^3.2.0",
+    "express": "^4.17.1",
+    "i18next": "^17.0.13",
+    "next": "latest",
+    "next-i18next": "^1.1.2",
+    "next-redux-wrapper": "^3.0.0",
+    "next-routes": "^1.4.2",
+    "node-sass": "^4.12.0",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
+    "react-redux": "^7.1.1",
+    "redux": "^4.0.4",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-observable": "^1.1.0",
+    "rxjs": "^6.5.2"
+  },
+  "devDependencies": {
+    "@types/node": "^12.0.12",
+    "@types/react": "^16.8.17",
+    "@types/react-dom": "16.8.4",
+    "cross-env": "^5.2.0",
+    "nodemon": "^1.19.0",
+    "ts-node": "^8.1.0",
+    "typescript": "^3.4.5"
+  },
+  "moduleNameMapper": {
+    "^.+\\.(css|sass|scss)$": "identity-obj-proxy",
+    "@App/*": [
+      "/*"
+    ],
+    "@Components/*": [
+      "components/*"
+    ],
+    "@Reducer/*": [
+      "reducer/*"
     ]
+  },
+  "moduleFileExtensions": [
+    "web.js",
+    "js",
+    "ts",
+    "json",
+    "web.jsx",
+    "jsx",
+    "tsx",
+    "node"
+  ]
 }

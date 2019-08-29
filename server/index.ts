@@ -1,41 +1,31 @@
-import { createServer } from 'http'
-import next from 'next'
-const { parse } = require('url')
-const routes = require('../routes/routes')
+import express, { Request, Response } from 'express'
 
+import next from 'next'
+
+// const nextI18next = require('./i18n')
+const routes = require('../routes/routes')
 const port = parseInt(process.env.PORT || '3000', 10)
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
+const handle = app.getRequestHandler()
 const handler = routes.getRequestHandler(app)
+  // const nextI18NextMiddleware = require('next-i18next/middleware').default
+;(async () => {
+  await app.prepare()
+  const server = express()
 
-const apiHeader = {
-  'Content-Type': 'text/json',
-  'Access-Control-Allow-Origin': '*',
-  'X-Powered-By': 'nodejs'
-}
-
-app.prepare().then(() => {
-  createServer((req, res) => {
-    const parsedUrl = parse(req.url, true)
-    const { pathname } = parsedUrl
-
-    if (pathname === '/service') {
-      res.writeHead(200, apiHeader)
-      res.write(
-        JSON.stringify({
-          message: 'okoko'
-        })
-      )
-      res.end()
+  // server.use(nextI18NextMiddleware(nextI18next))
+  server.use(handler)
+  server.get('*', (req: Request, res: Response) => {
+    if (req.path === '/service') {
+      res.send({
+        message: 'okoko'
+      })
     } else {
-      handler(req, res)
+      handle(req, res)
     }
-  }).listen(port)
+  })
 
-  // tslint:disable-next-line:no-console
-  console.log(
-    `> Server listening at http://localhost:${port} as ${
-      dev ? 'development' : process.env.NODE_ENV
-    }`
-  )
-})
+  await server.listen(port)
+  console.log(`> Ready on http://localhost:${port}`) // eslint-disable-line no-console
+})()
