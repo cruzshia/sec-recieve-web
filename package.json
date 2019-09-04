@@ -13,7 +13,9 @@
     "@types/react-redux": "^7.1.2",
     "@types/redux": "^3.6.0",
     "@zeit/next-sass": "^1.0.1",
+    "@zeit/next-typescript": "^1.1.1",
     "babel-plugin-module-resolver": "^3.2.0",
+    "cssnano": "^4.1.10",
     "express": "^4.17.1",
     "i18next": "^17.0.13",
     "next": "latest",
@@ -21,6 +23,7 @@
     "next-redux-wrapper": "^3.0.0",
     "next-routes": "^1.4.2",
     "node-sass": "^4.12.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-redux": "^7.1.1",
@@ -48,6 +51,9 @@
     ],
     "@Reducer/*": [
       "reducer/*"
+    ],
+    "@Lib/*": [
+      "lib/*"
     ]
   },
   "moduleFileExtensions": [

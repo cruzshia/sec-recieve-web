@@ -5,6 +5,7 @@ import CardContent from '@material-ui/core/CardContent'
 import CardMedia from '@material-ui/core/CardMedia'
 import Container from '@material-ui/core/Container'
 import Grid from '@material-ui/core/Grid'
+import I18nHoc from '@Components/Common/I18nHoc'
 import Layout from '@Components/Common/Layout'
 import React from 'react'
 import Typography from '@material-ui/core/Typography'
@@ -34,9 +35,8 @@ const useStyles = makeStyles(theme => ({
 
 const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
-export default function Album() {
+export default I18nHoc()(function Album() {
   const classes = useStyles()
-
   return (
     <React.Fragment>
       <Layout>
@@ -92,4 +92,4 @@ export default function Album() {
       </Layout>
     </React.Fragment>
   )
-}
+})

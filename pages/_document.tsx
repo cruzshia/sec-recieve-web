@@ -38,7 +38,7 @@ class MyDocument extends Document<DocumentComponentContext> {
   render() {
     return (
       <html lang={'en'}>
-        <title>Sev Recieve</title>
+        <title>Sec Recieve</title>
         <Head>
           <meta
             name='viewport'

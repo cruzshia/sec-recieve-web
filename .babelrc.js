@@ -6,7 +6,8 @@ const commonPlugins = [
       alias: {
         '@App': './',
         '@Components': './components',
-        '@Reducer': './reducer'
+        '@Reducer': './reducer',
+        '@Lib': './lib'
       },
       extensions: ['.js', '.jsx', '.ts', '.tsx']
     }
