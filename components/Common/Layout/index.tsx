@@ -12,7 +12,6 @@ import {
 
 import AppBar from '@material-ui/core/AppBar'
 import React from 'react'
-import Test from '@Components/Test'
 import Toolbar from '@material-ui/core/Toolbar'
 import { WithTranslation } from 'next-i18next'
 import { makeStyles } from '@material-ui/core/styles'
@@ -45,7 +44,7 @@ export default withTranslation('common')(
     async function handleClose(e: React.MouseEvent<HTMLLIElement>) {
       const lang = e.currentTarget.dataset.lang
       await props.i18n.changeLanguage(lang || 'en')
-      router.replaceRoute(router.asPath, {
+      router.pushRoute('accounts', {
         lng: lang
       })
       setAnchorEl(null)
@@ -61,7 +60,6 @@ export default withTranslation('common')(
               Sec BackEnd
             </Typography>
             <div>
-              <Test />
               <IconButton
                 aria-label='account of current user'
                 aria-controls='menu-appbar'

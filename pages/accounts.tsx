@@ -10,6 +10,16 @@ import Layout from '@Components/Common/Layout'
 import React from 'react'
 import Typography from '@material-ui/core/Typography'
 import { makeStyles } from '@material-ui/core/styles'
+import { WithTranslation } from 'next-i18next'
+
+interface Prop extends WithTranslation {
+  namespacesRequired: Array<string>
+}
+interface AlumComponent<Prop> extends React.FunctionComponent<Prop> {
+  getInitialProps?: () => Promise<{
+    namespacesRequired: Array<string>
+  }>
+}
 
 const useStyles = makeStyles(theme => ({
   heroContent: {
@@ -35,8 +45,9 @@ const useStyles = makeStyles(theme => ({
 
 const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
-export default I18nHoc()(function Album() {
+const Album = I18nHoc()(function(props: Prop) {
   const classes = useStyles()
+
   return (
     <React.Fragment>
       <Layout>
@@ -51,7 +62,7 @@ export default I18nHoc()(function Album() {
                 color='textPrimary'
                 gutterBottom
               >
-                Bank Account List
+                {props.t('common.title')}
               </Typography>
             </Container>
           </div>
@@ -92,4 +103,10 @@ export default I18nHoc()(function Album() {
       </Layout>
     </React.Fragment>
   )
+}) as AlumComponent<Prop>
+
+Album.getInitialProps = async () => ({
+  namespacesRequired: ['common']
 })
+
+export default Album

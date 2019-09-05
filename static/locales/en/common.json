@@ -1,3 +1,6 @@
 {
-    "test": "gogogo"
+    "test": "gogogo",
+    "common": {
+        "title": "Sec Recieve"
+    }
 }
