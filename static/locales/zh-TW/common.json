@@ -1,6 +1,6 @@
 {
-    "test": "走吧走吧",
-    "common": {
-        "title": "秒速收帳"
-    }
+  "test": "走吧走吧",
+  "title": "秒速收帳",
+  "login": "登入",
+  "bank_page_title": "帳號列表"
 }

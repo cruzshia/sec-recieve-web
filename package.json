@@ -30,6 +30,7 @@
     "redux": "^4.0.4",
     "redux-devtools-extension": "^2.13.8",
     "redux-observable": "^1.1.0",
+    "reset-css": "^4.0.1",
     "rxjs": "^6.5.2"
   },
   "devDependencies": {
@@ -51,9 +52,6 @@
     ],
     "@Reducer/*": [
       "reducer/*"
-    ],
-    "@Lib/*": [
-      "lib/*"
     ]
   },
   "moduleFileExtensions": [

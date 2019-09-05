@@ -23,8 +23,7 @@
     "paths": {
       "@App/*": ["./*"],
       "@Components/*": ["components/*"],
-      "@Reducer/*": ["reducer/*"],
-      "@Lib/*": ["lib/*"]
+      "@Reducer/*": ["reducer/*"]
     }
   },
   "exclude": ["dist", ".next", "out", "next.config.js"],

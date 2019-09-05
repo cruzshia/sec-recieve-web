@@ -1,11 +1,9 @@
-// import Login from '@Components/Login'
+import Layout from '@Components/Common/Layout'
+import Login from '@Components/Login'
 import React from 'react'
-import Route from '../routes/routes'
 import { WithTranslation } from 'next-i18next'
-import style from '@Components/Landing/landing.sass'
 import { withTranslation } from '@App/server/i18n'
 
-const Link = Route.Link
 class Index extends React.PureComponent<WithTranslation> {
   static async getInitialProps() {
     return {
@@ -14,21 +12,9 @@ class Index extends React.PureComponent<WithTranslation> {
   }
   render() {
     return (
-      <div>
-        {/* <Login /> */}
-        <ul>
-          <li>
-            <Link route='test' params={{ slug: 'aaa' }}>
-              <a>{this.props.t('test')}</a>
-            </Link>
-          </li>
-          <li className={style.test}>
-            <Link route='accounts'>
-              <a>b</a>
-            </Link>
-          </li>
-        </ul>
-      </div>
+      <Layout>
+        <Login />
+      </Layout>
     )
   }
 }

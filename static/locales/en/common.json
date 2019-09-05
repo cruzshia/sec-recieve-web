@@ -1,6 +1,6 @@
 {
-    "test": "gogogo",
-    "common": {
-        "title": "Sec Recieve"
-    }
+  "test": "gogogo",
+  "title": "Sec Recieve",
+  "login": "Login",
+  "bank_page_title": "Account List"
 }

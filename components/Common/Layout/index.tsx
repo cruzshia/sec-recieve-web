@@ -1,26 +1,19 @@
-import {
-  PhotoCamera as CameraIcon,
-  Translate as TranslateIcon
-} from '@material-ui/icons'
-import {
-  CssBaseline,
-  IconButton,
-  Menu,
-  MenuItem,
-  Typography
-} from '@material-ui/core'
+import { AccountBalance, PhotoCamera as CameraIcon } from '@material-ui/icons'
+import { CssBaseline, IconButton, Typography } from '@material-ui/core'
 
 import AppBar from '@material-ui/core/AppBar'
+import LangMenu from './LangMenu'
+import { Link } from '@App/lib/router'
 import React from 'react'
 import Toolbar from '@material-ui/core/Toolbar'
 import { WithTranslation } from 'next-i18next'
 import { makeStyles } from '@material-ui/core/styles'
-import { router } from '@Lib/router'
 import { withTranslation } from '@App/server/i18n'
 
 const useStyles = makeStyles(theme => ({
   icon: {
-    marginRight: theme.spacing(2)
+    marginRight: theme.spacing(2),
+    color: '#fff'
   },
   title: {
     flexGrow: 1
@@ -28,27 +21,33 @@ const useStyles = makeStyles(theme => ({
   footer: {
     backgroundColor: theme.palette.background.paper,
     padding: theme.spacing(6)
+  },
+  loginText: {
+    textDecoration: 'none',
+    marginLeft: theme.spacing(1)
   }
 }))
 
+function Copyright() {
+  return (
+    <Typography
+      component='span'
+      variant='body2'
+      color='textSecondary'
+      align='center'
+    >
+      Copyright ©
+      <a color='inherit' href='https://material-ui.com/'>
+        Sec Receive
+      </a>{' '}
+      {new Date().getFullYear()}.
+    </Typography>
+  )
+}
+
 export default withTranslation('common')(
-  (props: React.PropsWithChildren<WithTranslation>) => {
+  ({ i18n, t, children }: React.PropsWithChildren<WithTranslation>) => {
     const classes = useStyles()
-    const [anchorEl, setAnchorEl] = React.useState(null)
-    const open = Boolean(anchorEl)
-
-    function handleMenu(event: React.MouseEvent<HTMLButtonElement>) {
-      setAnchorEl(event.currentTarget as any)
-    }
-
-    async function handleClose(e: React.MouseEvent<HTMLLIElement>) {
-      const lang = e.currentTarget.dataset.lang
-      await props.i18n.changeLanguage(lang || 'en')
-      router.pushRoute('accounts', {
-        lng: lang
-      })
-      setAnchorEl(null)
-    }
 
     return (
       <React.Fragment>
@@ -57,48 +56,31 @@ export default withTranslation('common')(
           <Toolbar>
             <CameraIcon className={classes.icon} />
             <Typography variant='h5' className={classes.title}>
-              Sec BackEnd
+              {t('title')}
             </Typography>
-            <div>
+            <LangMenu i18n={i18n} />
+            <Link route='accounts'>
               <IconButton
                 aria-label='account of current user'
                 aria-controls='menu-appbar'
                 aria-haspopup='true'
-                onClick={handleMenu}
                 color='inherit'
               >
-                <TranslateIcon />
+                <AccountBalance />
               </IconButton>
-              <Menu
-                id='menu-appbar'
-                anchorEl={anchorEl}
-                anchorOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right'
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right'
-                }}
-                open={open}
-                onClose={handleClose}
-              >
-                <MenuItem data-lang='en' onClick={handleClose}>
-                  En
-                </MenuItem>
-                <MenuItem data-lang='zh-TW' onClick={handleClose}>
-                  中文
-                </MenuItem>
-              </Menu>
-            </div>
+            </Link>
+            <Link route='index'>
+              <a className={`link ${classes.loginText}`}>
+                <Typography variant='h6'>{t('login')}</Typography>
+              </a>
+            </Link>
           </Toolbar>
         </AppBar>
-        {props.children}
+        {children}
         {/* Footer */}
         <footer className={classes.footer}>
           <Typography variant='h6' align='center' gutterBottom>
-            Footer
+            1 Sec company
           </Typography>
           <Typography
             variant='subtitle1'
@@ -106,7 +88,7 @@ export default withTranslation('common')(
             color='textSecondary'
             component='p'
           >
-            Something here to give the footer a purpose!
+            <Copyright />
           </Typography>
         </footer>
         {/* End footer */}
