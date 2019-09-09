@@ -1,6 +1,7 @@
 {
-  "test": "gogogo",
   "title": "Sec Recieve",
   "login": "Login",
-  "bank_page_title": "Account List"
+  "bank_page_title": "Account List",
+  "meta_title": "Sec Recieve",
+  "meta_desc": "Share Your Account and recieve money in seconds"
 }

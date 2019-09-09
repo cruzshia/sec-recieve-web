@@ -1,6 +1,7 @@
 {
-  "test": "走吧走吧",
   "title": "秒速收帳",
   "login": "登入",
-  "bank_page_title": "帳號列表"
+  "bank_page_title": "帳號列表",
+  "meta_title": "秒速收帳",
+  "meta_desc": "分享你的銀行帳戶，秒速收到帳款"
 }
