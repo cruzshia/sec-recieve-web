@@ -6,7 +6,9 @@ import React from 'react'
 import { WithTranslation } from 'next-i18next'
 import { withTranslation } from '@App/server/i18n'
 
-class Index extends React.PureComponent<WithTranslation & ACCOUNT_PROPS> {
+class paymentEmbeded extends React.PureComponent<
+  WithTranslation & ACCOUNT_PROPS
+> {
   static async getInitialProps(ctx: NextProps) {
     return {
       namespacesRequired: ['common'],
@@ -26,4 +28,4 @@ class Index extends React.PureComponent<WithTranslation & ACCOUNT_PROPS> {
   }
 }
 
-export default withTranslation('common')(Index)
+export default withTranslation('common')(paymentEmbeded)

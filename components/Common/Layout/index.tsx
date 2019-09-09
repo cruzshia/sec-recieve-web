@@ -15,6 +15,7 @@ import React from 'react'
 import Toolbar from '@material-ui/core/Toolbar'
 import { WithTranslation } from 'next-i18next'
 import { withTranslation } from '@App/server/i18n'
+import style from './layout.sass'
 
 const styles = (theme: Theme) =>
   createStyles({
@@ -90,7 +91,7 @@ class Layout extends React.Component<WithStyles & WithTranslation> {
             </Link>
           </Toolbar>
         </AppBar>
-        {children}
+        <div className={style.bodyCtr}>{children}</div>
         {/* Footer */}
         <footer className={classes.footer}>
           <Typography variant='h6' align='center' gutterBottom>

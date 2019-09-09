@@ -4,13 +4,14 @@ const accountTypeRoute = '(bank|crypto)'
 
 routes.add('accounts', '/accounts', 'accounts')
 routes.add(
-  'payment_share',
-  `/payment/share/:type${accountTypeRoute}/:account`,
+  'paymentShare',
+  `/payment/share/:account_type${accountTypeRoute}/:account`,
   'paymentShare'
 )
 routes.add(
-  'payment_embeded',
-  `/payment/embeded/:type${accountTypeRoute}/:account`,
+  'paymentEmbeded',
+  `/payment/embeded/:account_type${accountTypeRoute}/:account`,
   'paymentEmbeded'
 )
 routes.add('index', '/', 'index')
+routes.add('signUp', '/signUp', 'signUp')
