@@ -1,4 +1,4 @@
-import { CssBaseline, IconButton, Menu, MenuItem } from '@material-ui/core'
+import { IconButton, Menu, MenuItem } from '@material-ui/core'
 
 import React from 'react'
 import { Translate as TranslateIcon } from '@material-ui/icons'
@@ -30,7 +30,6 @@ export default function({ i18n }: Props) {
 
   return (
     <div>
-      <CssBaseline />
       <IconButton
         aria-label='account of current user'
         aria-controls='menu-appbar'

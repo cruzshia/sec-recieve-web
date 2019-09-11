@@ -2,13 +2,16 @@ import '../styles/index.sass'
 
 import App, { AppContext } from 'next/app'
 
+import CssBaseline from '@material-ui/core/CssBaseline'
 import { Provider } from 'react-redux'
 import React from 'react'
 import { Store } from 'redux'
+import { ThemeProvider } from '@material-ui/styles'
 import { WithTranslation } from 'next-i18next'
 import { appWithTranslation } from '@App/server/i18n'
 import createStore from '../store'
 import i18next from 'i18next'
+import theme from '@App/lib/theme'
 import withRedux from 'next-redux-wrapper'
 
 interface MyAppProps extends WithTranslation {
@@ -37,7 +40,10 @@ class MyApp extends App<MyAppProps> {
     const { Component, pageProps, store } = this.props
     return (
       <Provider store={store}>
-        <Component {...pageProps} />
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <Component {...pageProps} />
+        </ThemeProvider>
       </Provider>
     )
   }

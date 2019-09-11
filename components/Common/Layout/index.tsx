@@ -1,5 +1,5 @@
 import { AccountBalance, PhotoCamera as CameraIcon } from '@material-ui/icons'
-import { CssBaseline, IconButton, Typography } from '@material-ui/core'
+import { IconButton, Typography } from '@material-ui/core'
 import {
   Theme,
   WithStyles,
@@ -14,8 +14,8 @@ import MetaTag from './MetaTag'
 import React from 'react'
 import Toolbar from '@material-ui/core/Toolbar'
 import { WithTranslation } from 'next-i18next'
-import { withTranslation } from '@App/server/i18n'
 import style from './layout.sass'
+import { withTranslation } from '@App/server/i18n'
 
 const styles = (theme: Theme) =>
   createStyles({
@@ -66,7 +66,6 @@ class Layout extends React.Component<WithStyles & WithTranslation> {
     return (
       <React.Fragment>
         <MetaTag t={t} />
-        <CssBaseline />
         <AppBar position='relative'>
           <Toolbar>
             <CameraIcon className={classes.icon} />
